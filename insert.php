@@ -20,8 +20,10 @@ VALUES ('" . $_POST["username"] . "', '" . $_POST["first_name"] . "', '" . $_POS
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
+  echo '<p><a href="index.php">Back</a></p>';
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
+  echo '<p><a href="index.php">Back</a></p>';
 }
 
 $conn->close();
