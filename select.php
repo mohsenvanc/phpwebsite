@@ -1,21 +1,9 @@
 <?php
 
-// connect to database
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sqltutorial";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+include("core/functions.php");
 
 $sql = "SELECT id, first_name, last_name FROM users";
-$result = $conn->query($sql);
+$result = connect_db()->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
@@ -25,4 +13,4 @@ if ($result->num_rows > 0) {
   } else {
     echo "0 results";
   }
-  $conn->close();
+  connect_db()->close();
