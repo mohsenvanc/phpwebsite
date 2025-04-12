@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 $sql = "INSERT INTO users (username,first_name, last_name,phone_number, email, gender, age)
-VALUES ('K1', 'John', 'Doe','09135896325', 'john@example.com', 'male', '32')";
+VALUES ('" . $_POST["username"] . "', '" . $_POST["first_name"] . "', '" . $_POST["last_name"] . "','" . $_POST["phone_number"] . "', '" . $_POST["email"] . "', '" . $_POST["gender"] . "', '" . $_POST["age"] . "')";
 
 $sql = "UPDATE users SET last_name='Hasan' WHERE id=9";
 
@@ -27,3 +27,5 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 
+echo "<p>User Inserted Successfully !</p>";
+echo '<p><a href="index.php">Back</a></p>';
